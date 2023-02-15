@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url('../assets/fonts/AvenirNextLTPro-Regular.ttf') format('truetype');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'MyFont', sans-serif;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+.error {
+  color: red;
+  transition: 1s ease-in-out;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
