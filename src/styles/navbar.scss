@@ -1,0 +1,89 @@
+nav {
+  box-shadow: 3px 0px 20px 0px #0000000a;
+  // padding: 30px 60px 30px 30px;
+  padding: 0 60px 0 30px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .navbar_right {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .search_bar_box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      .uil-search_box {
+        width: 50px;
+        height: 40px;
+        background: #39cdcc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        color: white;
+        cursor: pointer;
+      }
+
+      input {
+        border: 1px solid #213f7d;
+        width: 400px;
+        height: 40px;
+        opacity: 20%;
+        border-radius: 8px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        padding: 12px 20px;
+      }
+    }
+
+    .navbar_bell_box {
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .uil-bell {
+        font-size: 30px;
+        color: #213f7d;
+        cursor: pointer;
+      }
+
+      span {
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19px;
+        letter-spacing: 0em;
+        color: #213f7d;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      .navbar_profile_box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        font-family: 'Work Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19px;
+        letter-spacing: 0px;
+        text-align: left;
+
+        img {
+          border-radius: 9999px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}

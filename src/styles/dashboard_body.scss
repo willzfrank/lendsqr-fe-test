@@ -1,0 +1,74 @@
+.dashboard_body_box {
+  flex: 5;
+  background-color: #e5e5e5;
+  overflow: scroll;
+  padding: 60px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dashboard_userCard {
+    align-items: center;
+    gap: 26px;
+    justify-content: space-between;
+  }
+  h2 {
+    font-family: Work Sans;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #213f7d;
+    margin-bottom: 40px;
+  }
+}
+
+.user_card_box {
+  border: 1px solid #213f7d0f;
+  box-shadow: 3px 5px 20px 0px #0000000a;
+  width: 290px;
+  height: 180px;
+  border-radius: 4px;
+  background-color: white;
+  margin-bottom: 40px;
+  padding: 20px 0 30px 30px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+
+  p {
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #545f7d;
+  }
+
+  span {
+    font-family: Work Sans;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #213f7d;
+  }
+
+  .FontAwesomeIcon {
+    width: 40px;
+    height: 40px;
+    color: #df18ff;
+    background: #f2d4f7;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // height: 40px;
+    // width: 40px;
+  }
+}

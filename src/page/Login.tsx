@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import logo from '../assets/Group.jpg';
 import image1 from '../assets/pablo-sign-in 1.jpg';
 import '../styles/Login.scss';
 
-type Props = {};
-
-const Login = (props: Props) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -39,8 +38,16 @@ const Login = (props: Props) => {
     }
   };
 
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
   return (
-    <div className="LoginContainer">
+    <section className="LoginContainer">
       <Toaster position="bottom-right" />
       <div className="LoginImgContainer">
         <img src={logo} alt="logo" className="login_logo" />
@@ -61,25 +68,29 @@ const Login = (props: Props) => {
           />
           <span>
             {' '}
-            {emailError && <div className="error">{emailError}</div>}
+            {emailError && <span className="error">{emailError}</span>}
           </span>
-
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
+          <div className="password_container">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <span onClick={toggleShowPassword}>
+              {showPassword ? 'Hide' : 'Show'}
+            </span>
+          </div>
 
           {passwordError && (
-            <div className="error password_error">{passwordError}</div>
+            <span className="error password_error">{passwordError}</span>
           )}
           <span className="f_password">FORGOT PASSWORD</span>
           <button type="submit">LOG IN</button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 

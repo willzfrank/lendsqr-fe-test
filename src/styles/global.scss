@@ -3,6 +3,13 @@
   src: url('../assets/fonts/AvenirNextLTPro-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'MyFontBold';
+  src: url('../assets/fonts/AvenirNextLTPro-Bold.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@500&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -19,4 +26,8 @@
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+.flex {
+  display: flex;
 }
