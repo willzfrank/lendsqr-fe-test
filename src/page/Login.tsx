@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import logo from '../assets/Group.jpg';
+import logo2 from '../assets/Union.png';
+
 import image1 from '../assets/pablo-sign-in 1.jpg';
 import '../styles/Login.scss';
 
@@ -25,8 +27,8 @@ const Login = () => {
 
     if (!password) {
       setPasswordError('Password is required');
-    } else if (password.length < 8) {
-      setPasswordError('Password must be at least 8 characters long');
+    } else if (password.length < 3) {
+      setPasswordError('Password must be at least 3 characters long');
     } else {
       setPasswordError('');
     }
@@ -54,6 +56,7 @@ const Login = () => {
         <img src={image1} alt="" className="login_img" />
       </div>
       <div className="LoginForm">
+        <img src={logo2} alt="logo" className="mobile_login_logo" />
         <h2>Welcome!</h2>
         <h6>Enter details to login.</h6>
 
