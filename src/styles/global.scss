@@ -17,6 +17,7 @@
   font-family: 'MyFont', sans-serif;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer and Edge */
+  scroll-behavior: smooth;
 }
 
 .error {
@@ -39,4 +40,10 @@ body::-webkit-scrollbar {
 .active {
   border-left: 3px solid #39cdcc;
   background-color: #f5fcfc;
+}
+
+hr {
+  border: 1px solid #213f7d;
+  opacity: 10%;
+  margin-bottom: 30px;
 }
