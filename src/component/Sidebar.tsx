@@ -1,24 +1,23 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import {
-  faHandshake,
-  faSackDollar,
-  faPiggyBank,
-  faHandHoldingDollar,
-  faUserCheck,
-  faUserXmark,
-  faBriefcase,
-  faBuildingColumns,
-  faCoins,
-  faCashRegister,
-  faFan,
-  faUserGear,
-  faScroll,
-  faChartColumn,
-  faSliders,
-  faPercent,
-  faClipboardList,
-} from '@fortawesome/free-solid-svg-icons';
+import badge_percent from '../assets/badge-percent 1.png';
+import briefcase from '../assets/briefcase 1.png';
+import chartbar from '../assets/chart-bar 2.png';
+import clipboard from '../assets/clipboard-list 1.png';
+import coins from '../assets/coins-solid 1.png';
+import galaxy from '../assets/galaxy 1.png';
+import cash_at_hand from '../assets/Group 104.png';
+import bank from '../assets/Group.png';
+import shake from '../assets/handshake-regular 1.png';
+import transactions from '../assets/icon.png';
+import piggy_bank from '../assets/piggy-bank 1.png';
+import sack_bag from '../assets/sack 1.png';
+import scroll from '../assets/scroll 1.png';
+import sliders from '../assets/sliders-h 1.png';
+import user_check from '../assets/user-check 1.png';
+import user_cog from '../assets/user-cog 1.png';
+import user_friends from '../assets/user-friends 1.png';
+import user_times from '../assets/user-times 1.png';
+import home from '../assets/home 1.png';
+import users from '../assets/users 1.png';
 import '../styles/sidebar.scss';
 
 type Props = {};
@@ -28,83 +27,86 @@ function Sidebar({}: Props) {
     <div className="sidebar_box">
       <ul>
         <li>
-          <i className="uil uil-suitcase-alt"></i>Switch Organization{' '}
-          <i className="uil uil-angle-down"></i>
+          <img src={briefcase} alt="" />
+          Switch Organization <i className="uil uil-angle-down"></i>
         </li>
         <li>
-          <i className="uil uil-estate"></i> Dashboard
+          <img src={home} alt="" />
+          Dashboard
         </li>
       </ul>
       <h6>CUSTOMERS</h6>
       <ul>
-        <li>
-          <i className="uil uil-user"></i>Users
+        <li className="active">
+          <img src={user_friends} alt="" />
+          Users
         </li>
         <li>
-          <i className="uil uil-users-alt"></i>Guarantors
+          <img src={users} alt="" />
+          Guarantors
         </li>
         <li>
-          <FontAwesomeIcon icon={faSackDollar as IconProp} />
+          <img src={sack_bag} alt="" />
           Loans
         </li>
         <li>
-          <FontAwesomeIcon icon={faHandshake as IconProp} />
+          <img src={shake} alt="" />
           Decision Models
         </li>
         <li>
-          <FontAwesomeIcon icon={faPiggyBank as IconProp} />
+          <img src={piggy_bank} alt="" />
           Savings
         </li>
         <li>
-          <FontAwesomeIcon icon={faHandHoldingDollar as IconProp} />
+          <img src={cash_at_hand} alt="" />
           Loan Requests
         </li>
 
         <li>
-          <FontAwesomeIcon icon={faUserCheck as IconProp} />
+          <img src={user_check} alt="" />
           Whitelist
         </li>
         <li>
-          <FontAwesomeIcon icon={faUserXmark as IconProp} />
+          <img src={user_times} alt="" />
           Karma
         </li>
       </ul>
       <h6>BUSINESSES</h6>
       <ul>
         <li>
-          <FontAwesomeIcon icon={faBriefcase as IconProp} />
+          <img src={briefcase} alt="" />
           Organization
         </li>
         <li>
-          <FontAwesomeIcon icon={faHandHoldingDollar as IconProp} />
+          <img src={cash_at_hand} alt="" />
           Loan Products
         </li>
         <li>
-          <FontAwesomeIcon icon={faBuildingColumns as IconProp} />
+          <img src={bank} alt="" />
           Savings Products
         </li>
         <li>
-          <FontAwesomeIcon icon={faCoins as IconProp} />
+          <img src={coins} alt="" />
           Fees and Charges
         </li>
         <li>
-          <FontAwesomeIcon icon={faCashRegister as IconProp} />
+          <img src={transactions} alt="" />
           Transactions
         </li>
         <li>
-          <FontAwesomeIcon icon={faFan as IconProp} />
+          <img src={galaxy} alt="" />
           Services
         </li>
         <li>
-          <FontAwesomeIcon icon={faUserGear as IconProp} />
+          <img src={user_cog} alt="" />
           Service Account
         </li>
         <li>
-          <FontAwesomeIcon icon={faScroll as IconProp} />
+          <img src={scroll} alt="" />
           Settlements
         </li>
         <li>
-          <FontAwesomeIcon icon={faChartColumn as IconProp} />
+          <img src={chartbar} alt="" />
           Reports
         </li>
       </ul>
@@ -112,15 +114,15 @@ function Sidebar({}: Props) {
       <h6>SETTINGS</h6>
       <ul>
         <li>
-          <FontAwesomeIcon icon={faSliders as IconProp} />
+          <img src={sliders} alt="" />
           Preferences
         </li>
         <li>
-          <FontAwesomeIcon icon={faPercent as IconProp} />
+          <img src={badge_percent} alt="" />
           Fees and Pricing
         </li>
         <li>
-          <FontAwesomeIcon icon={faClipboardList as IconProp} />
+          <img src={clipboard} alt="" />
           Audit Logs
         </li>
       </ul>

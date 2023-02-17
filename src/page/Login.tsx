@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
 import logo from '../assets/Group.jpg';
 import logo2 from '../assets/Union.png';
-
+import { useNavigate } from 'react-router-dom';
 import image1 from '../assets/pablo-sign-in 1.jpg';
 import '../styles/Login.scss';
 
@@ -12,6 +11,8 @@ const Login = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -34,9 +35,7 @@ const Login = () => {
     }
 
     if (email && password) {
-      toast('You are logged in!', {
-        icon: '👏',
-      });
+      navigate('/dashboard');
     }
   };
 
@@ -50,7 +49,6 @@ const Login = () => {
 
   return (
     <section className="LoginContainer">
-      <Toaster position="bottom-right" />
       <div className="LoginImgContainer">
         <img src={logo} alt="logo" className="login_logo" />
         <img src={image1} alt="" className="login_img" />

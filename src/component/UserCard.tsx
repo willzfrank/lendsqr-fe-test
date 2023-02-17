@@ -1,25 +1,25 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '../styles/dashboard_body.scss';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import {
-  faChildren,
-  faUsers,
-  faCoins,
-  faSackDollar,
-} from '@fortawesome/free-solid-svg-icons';
+// import '../styles/user_card.scss';
 
-type Props = {};
+type UserCardProps = {
+  image: string;
+  title: string;
+  total: number;
+  color: string;
+  bgColor: string;
+};
 
-const UserCard = (props: Props) => {
+const UserCard = (props: UserCardProps) => {
   return (
     <div className="user_card_box">
-      <div className="FontAwesomeIcon">
-        <FontAwesomeIcon icon={faChildren as IconProp} />
+      <div
+        className="FontAwesomeIcon"
+        style={{ backgroundColor: props.bgColor }}
+      >
+        <img src={props.image} alt="" />
       </div>
-
-      <p>USERS</p>
-      <span>2,453</span>
+      <p>{props.title}</p>
+      <h6>{props.total.toLocaleString()}</h6>
     </div>
   );
 };

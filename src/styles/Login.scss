@@ -129,6 +129,11 @@
         height: 50px;
         margin: 12px 0;
 
+        &:focus{
+        border: 2px solid #39cdcc;
+
+        }
+
         @media (min-width: 320px) and (max-width: 768px) {
           width: 300px;
           margin: 10px 0;

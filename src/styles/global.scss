@@ -8,7 +8,7 @@
   src: url('../assets/fonts/AvenirNextLTPro-Bold.ttf') format('truetype');
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;500;600&display=swap');
 
 * {
   padding: 0;
@@ -30,4 +30,13 @@ body::-webkit-scrollbar {
 
 .flex {
   display: flex;
+}
+
+.cursor_pointer {
+  cursor: pointer;
+}
+
+.active {
+  border-left: 3px solid #39cdcc;
+  background-color: #f5fcfc;
 }

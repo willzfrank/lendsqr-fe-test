@@ -1,13 +1,16 @@
 import logo from '../assets/Group.jpg';
 import image4 from '../assets/image 4.png';
+import down from '../assets/down.png';
+
 import '../styles/navbar.scss';
+import bell from '../assets/Vector.png';
 
 type Props = {};
 
 function Navbar({}: Props) {
   return (
     <nav>
-      <img src={logo} alt="logo" loading="lazy" />
+      <img src={logo} alt="logo" loading="lazy" className="navbar_logo" />
 
       <div className="navbar_right">
         <div className="search_bar_box">
@@ -24,11 +27,16 @@ function Navbar({}: Props) {
 
         <div className="navbar_bell_box">
           <span>Docs</span>
-          <i className="uil uil-bell"></i>
+          <img src={bell} alt="notification" className="cursor_pointer" />
           <div className="navbar_profile_box">
             <img src={image4} alt="profile_pics" loading="lazy" />
             <h6>Adedeji</h6>
-            <i className="uil uil-angle-down"></i>
+            <img
+              src={down}
+              alt="arrow_down"
+              loading="lazy"
+              className="cursor_pointer"
+            />
           </div>
         </div>
       </div>

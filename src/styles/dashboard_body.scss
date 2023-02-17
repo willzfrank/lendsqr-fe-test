@@ -1,5 +1,6 @@
 .dashboard_body_box {
-  flex: 5;
+  flex: 4;
+  height: calc(100vh - 100px);
   background-color: #e5e5e5;
   overflow: scroll;
   padding: 60px;
@@ -49,7 +50,7 @@
     color: #545f7d;
   }
 
-  span {
+  h6 {
     font-family: Work Sans;
     font-size: 24px;
     font-weight: 600;
@@ -62,8 +63,8 @@
   .FontAwesomeIcon {
     width: 40px;
     height: 40px;
-    color: #df18ff;
-    background: #f2d4f7;
+    // color: #df18ff;
+    // background: #f2d4f7;
     border-radius: 9999px;
     display: flex;
     align-items: center;
@@ -71,4 +72,85 @@
     // height: 40px;
     // width: 40px;
   }
+}
+
+// TABLE
+
+table {
+  width: max-content;
+  height: 600px;
+  border-collapse: collapse;
+  position: relative;
+  padding: 30px;
+  overflow: visible;
+  margin-bottom: 20px;
+  background-color: white;
+
+  // background: linear-gradient(
+  //     0deg,
+  //     rgba(33, 63, 125, 0.06),
+  //     rgba(33, 63, 125, 0.06)
+  //   ),
+  //   linear-gradient(0deg, #ffffff, #ffffff);
+  // box-shadow: 3px 5px 20px 0px #0000000a;
+  border-radius: 4px;
+
+  tbody {
+    tr {
+      td {
+        padding: 25px;
+        border-bottom: 1px solid #213f7d1a;
+        font-family: Work Sans;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #545f7d;
+      }
+    }
+  }
+
+  thead {
+    font-family: Work Sans;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #545f7d;
+
+    tr {
+      th {
+        padding: 25px 25px 0 25px;
+        text-align: left;
+        .filter_button {
+          width: 10px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+thead tr th {
+  font-weight: 500;
+  text-align: left;
+}
+
+// tbody tr:nth-child(even) {
+//   background-color: #fafafa;
+// }
+
+th,
+td {
+  padding: 8px;
+  overflow-wrap: break-word;
+}
+
+.pagination-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
