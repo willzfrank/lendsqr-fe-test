@@ -18,23 +18,23 @@ const tabs: Tab[] = [
   },
   {
     title: 'Documents',
-    content: 'This is the content of Tab 2',
+    content: 'Documents is currently unavailable',
   },
   {
     title: 'Bank Details',
-    content: 'This is the content of Tab 3',
+    content: 'Bank Details is currently unavailable',
   },
   {
     title: 'Loans',
-    content: 'This is the content of Tab 4',
+    content: 'Loans is currently unavailable',
   },
   {
     title: 'Savings',
-    content: 'This is the content of Tab 5',
+    content: 'Savings is currently unavailable',
   },
   {
     title: 'App and System',
-    content: 'This is the content of Tab 6',
+    content: 'App and System is currently unavailable',
   },
 ];
 
