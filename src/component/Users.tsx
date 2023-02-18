@@ -1,10 +1,42 @@
 import '../styles/user.scss';
+import React from 'react';
 import arrow_back from '../assets/arrow-back.png';
 import outline_star from '../assets/outline_star.png';
 import filled_star from '../assets/filled_star.png';
 import toast, { Toaster } from 'react-hot-toast';
+import UserTab from './UserTab';
 
-type Props = {};
+interface Tab {
+  title: string;
+  content: JSX.Element | string;
+}
+
+const tabs: Tab[] = [
+  {
+    title: 'General Details',
+    content: <UserTab />,
+  },
+  {
+    title: 'Documents',
+    content: 'This is the content of Tab 2',
+  },
+  {
+    title: 'Bank Details',
+    content: 'This is the content of Tab 3',
+  },
+  {
+    title: 'Loans',
+    content: 'This is the content of Tab 4',
+  },
+  {
+    title: 'Savings',
+    content: 'This is the content of Tab 5',
+  },
+  {
+    title: 'App and System',
+    content: 'This is the content of Tab 6',
+  },
+];
 
 const handleDeactivate = () => {
   toast.success('User has been blacklisted.', {
@@ -28,7 +60,13 @@ const handleActivate = () => {
   });
 };
 
-const Users = (props: Props) => {
+const Users = () => {
+  const [activeTab, setActiveTab] = React.useState(0);
+
+  const handleTabClick = (tabIndex: number) => {
+    setActiveTab(tabIndex);
+  };
+
   return (
     <section className="user_container">
       <Toaster />
@@ -82,17 +120,33 @@ const Users = (props: Props) => {
             <span>9912345678/Providus Bank</span>
           </div>
         </div>
-        <div className="profie_tab">
-          <span>General Details</span>
-          <span>Documents</span>
-          <span>Bank Details</span>
-          <span>Loans</span>
-          <span>Savings</span>
-          <span>App and System</span>
+        {/* <div className="profie_tab">
+          <div className="mobile_scroll">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div> */}
+        <div className="tab-header">
+          <div className="overflow">
+            {tabs.map((tab, index) => (
+              <div
+                key={index}
+                className={`tab ${activeTab === index ? 'tabactive' : ''}`}
+                onClick={() => handleTabClick(index)}
+              >
+                <span>{tab.title}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
-      <div className="information_container">
+      <div className="tab-content">{tabs[activeTab].content}</div>
+      {/*  */}
+      {/* <div className="information_container">
         <h6>Personal Information</h6>
 
         <div className="personal">
@@ -145,7 +199,7 @@ const Users = (props: Props) => {
         </div>
         <hr />
         <h6>Education and Employment</h6>
-        <div className="employment guarantor_container">
+        <div className="employment ">
           <div>
             <div className="personal_details">
               <span>level of education</span>
@@ -188,7 +242,7 @@ const Users = (props: Props) => {
         </div>
         <hr />
         <h6>Socials</h6>
-        <div className="personal guarantor_container">
+        <div className="personal ">
           <div className="personal_details">
             <span>Twitter</span>
             <h6>@grace_effiom</h6>
@@ -206,7 +260,7 @@ const Users = (props: Props) => {
         </div>
         <hr />
         <h6>Guarantor</h6>
-        <div className="guarantor_container">
+        <div className="">
           <div className="personal">
             <div className="personal_details">
               <span>full Name</span>
@@ -226,7 +280,7 @@ const Users = (props: Props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

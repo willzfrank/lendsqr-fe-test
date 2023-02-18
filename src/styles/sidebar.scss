@@ -8,6 +8,10 @@
   left: 0;
   padding: 39px 0;
 
+  @media screen and (max-width: 884px) {
+    display: none !important;
+  }
+
   &::-webkit-scrollbar-track {
     border-radius: 10px;
   }

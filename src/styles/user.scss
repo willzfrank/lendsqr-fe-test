@@ -5,6 +5,11 @@
   overflow: scroll;
   padding: 70px 60px;
 
+  @media (min-width: 320px) and (max-width: 767px) {
+    height: 100%;
+    padding: 35px 30px;
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -25,62 +30,62 @@
     position: relative;
 
     .profie_tab {
-      width: 95%;
-      display: flex;
-      bottom: -1px;
-      align-items: baseline;
-      justify-content: baseline;
-      justify-self: baseline;
-      justify-content: space-between;
-      position: absolute;
+      .mobile_scroll {
+        @media (min-width: 320px) and (max-width: 767px) {
+          overflow: scroll;
+          width: 99%;
+          align-items: center;
+          gap: 20px;
+          bottom: -7px;
+        }
 
-      span:nth-child(1) {
-        border-bottom: 2px solid #39cdcc;
-        padding-bottom: 10px;
-        position: relative;
-        cursor: pointer;
-        color: #39cdcc;
-        font-family: Work Sans;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 19px;
-        letter-spacing: 0em;
-        text-align: center;
-      }
-      span:nth-child(2),
-      span:nth-child(3),
-      span:nth-child(4),
-      span:nth-child(5),
-      span:nth-child(6) {
-        font-family: Work Sans;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 19px;
-        letter-spacing: 0em;
-        text-align: center;
-
-        cursor: pointer;
-        padding-bottom: 10px;
-        position: relative;
-
-        &:hover {
+        span:nth-child(1) {
+          border-bottom: 2px solid #39cdcc;
+          padding-bottom: 10px;
+          position: relative;
+          cursor: pointer;
           color: #39cdcc;
-          transition: 0.3s ease-in-out;
+          font-family: Work Sans;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 19px;
+          letter-spacing: 0em;
+          text-align: center;
         }
+        span:nth-child(2),
+        span:nth-child(3),
+        span:nth-child(4),
+        span:nth-child(5),
+        span:nth-child(6) {
+          font-family: Work Sans;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 19px;
+          letter-spacing: 0em;
+          text-align: center;
+          cursor: pointer;
+          padding-bottom: 10px;
+          position: relative;
 
-        &::before {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background-color: #39cdcc;
-          transition: width 0.7s ease-in-out;
-        }
+          &:hover {
+            color: #39cdcc;
+            transition: 0.3s ease-in-out;
+          }
 
-        &:hover::before {
-          width: 100%;
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #39cdcc;
+            transition: width 0.7s ease-in-out;
+          }
+
+          &:hover::before {
+            width: 100%;
+          }
         }
       }
     }
@@ -93,7 +98,19 @@
       height: 100px;
       margin-bottom: 80px;
 
+      @media (min-width: 320px) and (max-width: 767px) {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
       .profile_name {
+        @media (min-width: 320px) and (max-width: 767px) {
+          width: 100%;
+          text-align: center;
+        }
         h2 {
           color: #213f7d;
           font-family: Work Sans;
@@ -102,6 +119,10 @@
           line-height: 26px;
           letter-spacing: 0px;
           text-align: left;
+
+          @media (min-width: 320px) and (max-width: 767px) {
+            text-align: center;
+          }
         }
 
         span {
@@ -121,6 +142,10 @@
         border: 1px solid #545f7d;
         transform: rotate(90deg);
         opacity: 20%;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+          transform: rotate(180deg);
+        }
       }
 
       .user_amount {
@@ -190,6 +215,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 1rem;
+      flex-direction: column;
+    }
 
     h2 {
       font-family: Work Sans;
@@ -266,6 +299,11 @@
     gap: 10px 100px;
     grid-auto-flow: row;
 
+    @media screen and (min-width: 768px) and (max-width: 1114px) {
+      grid-template-columns: 1fr 1fr;
+      height: auto;
+    }
+
     span {
       font-family: Work Sans;
       font-size: 12px;
@@ -296,6 +334,14 @@
     gap: 10px 100px;
     grid-auto-flow: row;
 
+    @media screen and (min-width: 1280px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
     span {
       font-family: Work Sans;
       font-size: 12px;
@@ -319,4 +365,51 @@
       width: max-content;
     }
   }
+}
+
+.tab-header {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: scroll !important;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .overflow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      width: max-content;
+    }
+  }
+
+  .tab {
+    padding: 0 12px;
+    margin: 0 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #777;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #39cdcc;
+    }
+
+    &.tabactive {
+      color: #39cdcc;
+      border-bottom: 3px solid #39cdcc;
+    }
+  }
+}
+
+.tab-content {
+  padding: 24px;
+  font-size: 18px;
+  text-align: center;
+  color: #444;
 }

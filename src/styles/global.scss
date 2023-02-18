@@ -47,3 +47,26 @@ hr {
   opacity: 10%;
   margin-bottom: 30px;
 }
+
+.left {
+  @media (min-width: 769px) and (max-width: 1114px) {
+    transform: translateX(60%);
+    transition: transform 300ms ease-out;
+  }
+  /* right: 100%; */
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    transform: translateX(20%);
+    transition: transform 300ms ease-out;
+  }
+}
+
+.right {
+  transform: translateX(100%);
+  /* right: 0; */
+  transition: transform 300ms ease-out;
+}
+
+
+
+
