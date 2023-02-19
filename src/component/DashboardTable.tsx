@@ -1,70 +1,38 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import Pagination from '../component/Pagination';
 import '../styles/dashboard_body.scss';
+import ellipse from '../assets/ellipse.png';
+import DashboardModalFilter from './DashboardFilter';
 import filter_button from '../assets/filter-results-button.png';
-
-type User = {
-  id: number;
-  createdAt: string;
-  orgName: string;
-  userName: string;
-  email: string;
-  phoneNumber: string;
-  lastActiveDate: string;
-  profile: {
-    firstName: string;
-    lastName: string;
-    phoneNumber: number;
-    avatar: string;
-    gender: string;
-    bvn: number;
-    address: string;
-    currency: string;
-  };
-  guarantor: {
-    firstName: string;
-    lastName: string;
-    phoneNumber: string;
-    gender: string;
-    address: string;
-  };
-  accountBalance: number;
-  accountNumber: number;
-  socials: {
-    facebook: string;
-    instagram: string;
-    twitter: string;
-  };
-  education: {
-    level: string;
-    employmentStatus: string;
-    sector: string;
-    duration: string;
-    officeEmail: string;
-    monthlyIncome: ['128.57', '118.07'];
-    loanRepayment: string;
-  };
-};
+import SmallModal from './SmallModal';
 
 const PAGE_SIZE = 10;
+
+async function fetchUsers() {
+  try {
+    const response = await fetch(
+      'https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users'
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 export default function DashboardTable() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [users, setUsers] = useState<User[]>([]);
+  const [isOpened, setIsOpened] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          'https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users'
-        );
-        const data = await response.json();
-        setUsers(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
+    async function fetchUserData() {
+      const data = await fetchUsers();
+      setUsers(data);
+    }
+
+    fetchUserData();
   }, []);
 
   const currentTableData = useMemo(() => {
@@ -72,15 +40,37 @@ export default function DashboardTable() {
     const lastPageIndex = firstPageIndex + PAGE_SIZE;
     return users.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, users]);
+  const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
+
+  const [modalStates, setModalStates] = useState(
+    currentTableData.map(() => false)
+  );
+
+  const toggleModal = (index: number) => {
+    const newModalStates = [...modalStates];
+    newModalStates[index] = !newModalStates[index];
+    setModalStates(newModalStates);
+
+    if (activeModalIndex === index) {
+      setActiveModalIndex(null);
+    } else {
+      setActiveModalIndex(index);
+    }
+  };
 
   return (
-    <>
+    <div className="table_container">
       <table>
         <thead>
           <tr>
             <th>
               organization
-              <img src={filter_button} alt="" className="filter_button" />
+              <img
+                src={filter_button}
+                alt=""
+                className="filter_button"
+                onClick={() => setIsOpened(!isOpened)}
+              />
             </th>
             <th>
               Username
@@ -105,25 +95,43 @@ export default function DashboardTable() {
             </th>
           </tr>
         </thead>
-        <tbody>
-          {currentTableData.map((item) => {
+        <tbody onClick={() => setIsOpened(false)}>
+          {isOpened && <DashboardModalFilter />}
+          {currentTableData.map((item, index) => {
             return (
               <tr key={item.id}>
                 <td>
-                  {item.orgName.length > 20
+                  {item.orgName?.length > 20
                     ? item.orgName.slice(0, 15) + '...'
                     : item.orgName}
                 </td>
                 <td>{item.userName}</td>
                 <td>
-                  {item.email.length > 20
+                  {item.email?.length > 20
                     ? item.email.slice(0, 15) + '...'
                     : item.email}
                 </td>
-
                 <td>{item.phoneNumber}</td>
                 <td>{item.createdAt}</td>
                 <td>Active</td>
+                <td className="modal_container">
+                  {activeModalIndex === index && modalStates[index] && (
+                    <SmallModal itemId={item.id} />
+                  )}
+                  <img
+                    src={ellipse}
+                    onClick={() => {
+                      const newModalStates = [...modalStates];
+                      newModalStates[index] = !newModalStates[index];
+                      setModalStates(newModalStates);
+                      if (activeModalIndex === index) {
+                        setActiveModalIndex(null);
+                      } else {
+                        setActiveModalIndex(index);
+                      }
+                    }}
+                  />
+                </td>
               </tr>
             );
           })}
@@ -136,6 +144,6 @@ export default function DashboardTable() {
         pageSize={PAGE_SIZE}
         onPageChange={(page) => setCurrentPage(page)}
       />
-    </>
+    </div>
   );
 }

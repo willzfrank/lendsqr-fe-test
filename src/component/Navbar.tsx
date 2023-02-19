@@ -40,7 +40,9 @@ function Navbar({}: Props) {
         <div className="overlay" onClick={() => setIsOpen(false)}></div>
       )}
       <div className="nav_container">
-        <img src={logo} alt="logo" loading="lazy" className="navbar_logo" />
+        <a href="/user">
+          <img src={logo} alt="logo" loading="lazy" className="navbar_logo" />
+        </a>
 
         <div className="navbar_right">
           <div className="search_bar_box">
@@ -74,7 +76,9 @@ function Navbar({}: Props) {
 
       {/* MOBILE NAVBAR */}
       <div className="mobile-only mobile_nav_header">
-        <img src={logo} />
+        <a href="/user">
+          <img src={logo} alt="logo" />
+        </a>
         <i className="uil uil-bars" onClick={toggleMenu}></i>
       </div>
       <div className={`mobileNavbar ${isOpen ? 'left' : 'right'}`}>

@@ -5,6 +5,10 @@
   overflow: scroll;
   padding: 60px;
 
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    padding: 30px;
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -13,6 +17,11 @@
     align-items: center;
     gap: 26px;
     justify-content: space-between;
+
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
   h2 {
     font-family: Work Sans;
@@ -39,6 +48,11 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-bottom: 0px;
+    width: 100%;
+  }
 
   p {
     font-family: Work Sans;
@@ -76,6 +90,14 @@
 
 // TABLE
 
+.table_container {
+  overflow: scroll !important;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 table {
   width: max-content;
   height: 600px;
@@ -85,6 +107,10 @@ table {
   overflow: visible;
   margin-bottom: 20px;
   background-color: white;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-top: 2rem;
+  }
 
   // background: linear-gradient(
   //     0deg,
@@ -97,6 +123,13 @@ table {
 
   tbody {
     tr {
+      .modal_container {
+        position: relative;
+
+        img {
+          cursor: pointer;
+        }
+      }
       td {
         padding: 25px;
         border-bottom: 1px solid #213f7d1a;
