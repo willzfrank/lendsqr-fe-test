@@ -21,7 +21,7 @@
     width: 140px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1182px) {
     display: none;
   }
 }
@@ -39,7 +39,7 @@
   .mobile_login_logo {
     display: none;
 
-    @media (min-width: 320px) and (max-width: 884px) {
+    @media (min-width: 320px) and (max-width: 1182px) {
       width: 60px;
       height: 60px;
       margin-bottom: 20px;
@@ -67,7 +67,7 @@
         text-transform: uppercase;
         cursor: pointer;
 
-        @media (min-width: 768px) and (max-width: 884px) {
+        @media (min-width: 768px) and (max-width: 1182px) {
           top: 35px;
         }
       }
@@ -118,7 +118,7 @@
         margin-top: 20px;
       }
 
-      @media (min-width: 768px) and (max-width: 884px) {
+      @media (min-width: 768px) and (max-width: 1182px) {
         width: 600px;
         height: 60px;
       }
@@ -144,7 +144,7 @@
         margin: 10px 0;
       }
 
-      @media (min-width: 768px) and (max-width: 884px) {
+      @media (min-width: 768px) and (max-width: 1182px) {
         width: 600px;
         height: 60px;
         font-size: 17px;
@@ -176,7 +176,7 @@
       width: max-content;
     }
   }
-  @media (min-width: 320px) and (max-width: 884px) {
+  @media (min-width: 320px) and (max-width: 1182px) {
     width: 100%;
     align-items: center;
     justify-content: center;

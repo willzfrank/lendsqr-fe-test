@@ -7,15 +7,10 @@ import toast, { Toaster } from 'react-hot-toast';
 const Dashboard = () => {
   useEffect(() => {
     document.title = 'Dashboard';
-
-    toast('You are logged in!', {
-      icon: '👏',
-    });
   }, []);
 
   return (
     <>
-      <Toaster position="bottom-right" />
       <Navbar />
       <section className="flex">
         <Sidebar />
