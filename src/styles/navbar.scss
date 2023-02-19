@@ -1,4 +1,7 @@
 .nav_container {
+  /* shadow animation */
+  animation: shadow-animation 0.5s forwards;
+
   box-shadow: 3px 0px 20px 0px #0000000a;
   padding: 0 60px 0 30px;
   height: 100px;
@@ -15,6 +18,9 @@
   .navbar_logo {
     width: 116px;
     height: 30px;
+
+    /* logo animation */
+    animation: logo-animation 1s ease-out forwards;
   }
 
   .navbar_right {
@@ -40,6 +46,9 @@
         border-bottom-right-radius: 8px;
         color: white;
         cursor: pointer;
+
+        /* search icon animation */
+        animation: search-icon-animation 1s ease-out forwards;
       }
 
       input {
@@ -57,6 +66,9 @@
         line-height: 16px;
         letter-spacing: 0em;
         text-align: left;
+
+        /* input box animation */
+        animation: input-box-animation 1s ease-out forwards;
       }
     }
 
@@ -70,6 +82,9 @@
         font-size: 30px;
         color: #213f7d;
         cursor: pointer;
+
+        /* bell icon animation */
+        animation: bell-icon-animation 1s ease-out forwards;
       }
 
       span {
@@ -81,6 +96,9 @@
         color: #213f7d;
         text-decoration: underline;
         cursor: pointer;
+
+        /* notification text animation */
+        animation: notification-text-animation 1s ease-out forwards;
       }
 
       .navbar_profile_box {
@@ -103,11 +121,11 @@
           letter-spacing: 0px;
           text-align: left;
           color: #213f7d;
-        }
 
-        img {
-          border-radius: 9999px;
-          object-fit: contain;
+          img {
+            border-radius: 9999px !important;
+            object-fit: contain;
+          }
         }
       }
     }
@@ -123,9 +141,10 @@
   flex-direction: column;
   background-color: #e5e5e5;
   top: 0;
-  /* right: 0%; */
   padding: 1.6em;
   color: black !important;
+  transition: transform 0.3s ease-in-out;
+
   @media (min-width: 320px) and (max-width: 768px) {
     padding: 1em;
   }
@@ -138,9 +157,14 @@
     align-items: flex-end;
     justify-content: flex-end;
     color: #213f7d;
+    transition: color 0.3s ease-in-out;
 
     @media (min-width: 320px) and (max-width: 768px) {
       width: 78%;
+    }
+
+    &:hover {
+      color: #39cdcc;
     }
   }
 }
@@ -148,15 +172,20 @@
 .mobile_nav_header {
   padding: 35px;
   align-items: center;
-  display: none !important;
+  display: none;
   align-items: center;
   justify-content: space-between;
+  transition: all 0.3s ease;
 
   @media (min-width: 320px) and (max-width: 768px) {
     padding: 20px;
   }
 
   img {
+    width: 116px;
+    height: 30px;
+    transition: all 0.3s ease;
+
     @media (min-width: 320px) and (max-width: 768px) {
       width: 100px;
     }
@@ -170,9 +199,14 @@
     font-size: 32px;
     cursor: pointer;
     color: #213f7d;
+    transition: all 0.3s ease;
 
     @media (min-width: 320px) and (max-width: 768px) {
       font-size: 20px;
+    }
+
+    &:hover {
+      transform: scale(1.2);
     }
   }
 }
@@ -188,6 +222,7 @@
   @media (min-width: 320px) and (max-width: 768px) {
     width: 78%;
   }
+
   .uil-search_box {
     width: 70px;
     height: 40px;
@@ -199,6 +234,11 @@
     border-bottom-right-radius: 8px;
     color: white;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    css Copy code &:hover {
+      transform: scale(1.05);
+    }
   }
 
   input {
@@ -216,6 +256,12 @@
     line-height: 16px;
     letter-spacing: 0em;
     text-align: left;
+    transition: all 0.2s ease-in-out;
+
+    &:focus {
+      border: 1px solid #39cdcc;
+      box-shadow: 0px 0px 5px #39cdcc;
+    }
 
     @media (min-width: 320px) and (max-width: 768px) {
       width: 300px !important;
@@ -228,6 +274,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: all 0.3s ease;
 
   @media (min-width: 320px) and (max-width: 768px) {
     width: 78%;
@@ -237,6 +284,7 @@
     font-size: 30px;
     color: #213f7d;
     cursor: pointer;
+    transition: all 0.3s ease;
   }
 
   span {
@@ -248,6 +296,7 @@
     color: #213f7d;
     text-decoration: underline;
     cursor: pointer;
+    transition: all 0.3s ease;
   }
 
   .navbar_profile_box {
@@ -261,6 +310,7 @@
     line-height: 19px;
     letter-spacing: 0px;
     text-align: left;
+    transition: all 0.3s ease;
 
     h6 {
       font-family: Work Sans;
@@ -270,11 +320,19 @@
       letter-spacing: 0px;
       text-align: left;
       color: #213f7d;
+      transition: all 0.3s ease;
     }
 
     img {
-      border-radius: 9999px;
+      border-radius: 9999px !important;
       object-fit: contain;
+      transition: all 0.3s ease;
+    }
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.1);
     }
   }
 }
@@ -282,6 +340,7 @@
 .mobile_sidebar_box {
   width: 38%;
   overflow: scroll;
+  transition: transform 0.3s ease-in-out;
 
   @media (min-width: 320px) and (max-width: 768px) {
     width: 78%;
@@ -290,8 +349,10 @@
   &::-webkit-scrollbar {
     display: none;
   }
+
   ul {
     margin-top: 1.5rem;
+
     li {
       padding-left: 13px;
       width: 100%;
@@ -309,11 +370,10 @@
       text-transform: capitalize;
       color: #213f7d;
       opacity: 1;
-      transition: opacity 0.3s ease-in-out;
+      transition: background-color 0.2s ease-in-out, opacity 0.3s ease-in-out;
 
       &:hover {
         background-color: #f5fcfc;
-        transition: 0.2s ease-in-out;
         cursor: pointer;
         opacity: 0.8;
       }
@@ -324,10 +384,18 @@
 .overlay {
   height: 100vh;
   width: 100vw;
-  background: rgba($color: black, $alpha: 0.5);
-  position: absolute;
-  z-index: 1;
-  right: 0px;
-  bottom: 0px;
-  top: 0px;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+}
+
+.overlay.overlay_active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out, visibility 0s linear 0s;
 }

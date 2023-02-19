@@ -18,11 +18,10 @@ import user_friends from '../assets/user-friends 1.png';
 import user_times from '../assets/user-times 1.png';
 import home from '../assets/home 1.png';
 import users from '../assets/users 1.png';
+
 import '../styles/sidebar.scss';
 
-type Props = {};
-
-function Sidebar({}: Props) {
+function Sidebar() {
   return (
     <div className="sidebar_box">
       <ul>

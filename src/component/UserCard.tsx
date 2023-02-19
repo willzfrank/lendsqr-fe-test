@@ -1,25 +1,27 @@
 import React from 'react';
-// import '../styles/user_card.scss';
 
 type UserCardProps = {
   image: string;
   title: string;
   total: number;
-  color: string;
   bgColor: string;
 };
 
-const UserCard = (props: UserCardProps) => {
+const UserCard: React.FC<UserCardProps> = ({
+  image,
+  title,
+  total,
+  bgColor,
+}) => {
+  const formattedTotal = total.toLocaleString();
+
   return (
-    <div className="user_card_box">
-      <div
-        className="FontAwesomeIcon"
-        style={{ backgroundColor: props.bgColor }}
-      >
-        <img src={props.image} alt="" />
+    <div className="user-card-box">
+      <div className="font-awesome-icon" style={{ backgroundColor: bgColor }}>
+        <img src={image} alt={title} />
       </div>
-      <p>{props.title}</p>
-      <h6>{props.total.toLocaleString()}</h6>
+      <p>{title}</p>
+      <h6>{formattedTotal}</h6>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
 
 type User = {
-  id: number;
+  id: string;
   createdAt: string;
   orgName: string;
   userName: string;

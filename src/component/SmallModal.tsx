@@ -6,7 +6,7 @@ import '../styles/dashboard_modal.scss';
 import { Link } from 'react-router-dom';
 
 type User = {
-  itemId: number;
+  itemId: string;
 };
 
 const SmallModal: React.FC<User> = ({ itemId }) => {

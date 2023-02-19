@@ -1,4 +1,14 @@
-.dashboard_body_box {
+/* Define the animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.dashboard-body {
   flex: 4;
   height: calc(100vh - 100px);
   background-color: #e5e5e5;
@@ -6,15 +16,19 @@
   padding: 60px;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
-    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
   }
 
   &::-webkit-scrollbar {
     display: none;
   }
 
-  .dashboard_userCard {
+  /* Add a fade-in animation to the user cards */
+  .dashboard-user-cards {
     align-items: center;
+    display: flex;
     gap: 26px;
     justify-content: space-between;
 
@@ -22,7 +36,21 @@
       display: flex;
       flex-wrap: wrap;
     }
+
+    .user-card-box {
+      /* Add a transition to the user cards */
+      transition: transform 0.3s ease-in-out;
+
+      /* Add the fade-in animation */
+      animation: fadeIn 0.5s ease-out;
+
+      /* When hovering over the user cards, scale them up a bit */
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
+
   h2 {
     font-family: Work Sans;
     font-size: 24px;
@@ -35,7 +63,7 @@
   }
 }
 
-.user_card_box {
+.user-card-box {
   border: 1px solid #213f7d0f;
   box-shadow: 3px 5px 20px 0px #0000000a;
   width: 290px;
@@ -48,10 +76,16 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
+  transition: all 0.3s ease-in-out;
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     margin-bottom: 0px;
     width: 100%;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 8px 25px 0px #00000014;
   }
 
   p {
@@ -62,6 +96,7 @@
     letter-spacing: 0em;
     text-align: left;
     color: #545f7d;
+    transition: all 0.3s ease-in-out;
   }
 
   h6 {
@@ -72,19 +107,23 @@
     letter-spacing: 0em;
     text-align: left;
     color: #213f7d;
+    transition: all 0.3s ease-in-out;
   }
 
-  .FontAwesomeIcon {
+  .font-awesome-icon {
     width: 40px;
     height: 40px;
-    // color: #df18ff;
-    // background: #f2d4f7;
     border-radius: 9999px;
     display: flex;
     align-items: center;
     justify-content: center;
-    // height: 40px;
-    // width: 40px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
   }
 }
 
@@ -125,9 +164,9 @@ table {
     tr {
       .modal_container {
         position: relative;
+        cursor: pointer;
 
         img {
-          cursor: pointer;
         }
       }
       td {
@@ -160,6 +199,7 @@ table {
         text-align: left;
         .filter_button {
           width: 10px;
+          cursor: pointer;
           margin-left: 10px;
         }
       }
@@ -186,4 +226,17 @@ td {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Work Sans;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #213f7d;
 }

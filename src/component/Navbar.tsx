@@ -1,8 +1,8 @@
+import { useState } from 'react';
+
 import logo from '../assets/Group.jpg';
 import image4 from '../assets/image 4.png';
 import down from '../assets/down.png';
-import React from 'react';
-import '../styles/navbar.scss';
 import bell from '../assets/Vector.png';
 import badge_percent from '../assets/badge-percent 1.png';
 import briefcase from '../assets/briefcase 1.png';
@@ -25,42 +25,51 @@ import user_times from '../assets/user-times 1.png';
 import home from '../assets/home 1.png';
 import users from '../assets/users 1.png';
 
-type Props = {};
+import '../styles/navbar.scss';
 
-function Navbar({}: Props) {
-  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  const searchBar = (
+    <div className="search_bar_box">
+      <input
+        type="text"
+        name="search"
+        id=""
+        placeholder="Search for anything"
+      />
+      <div className="uil-search_box">
+        <i className="uil uil-search"></i>
+      </div>
+    </div>
+  );
 
   return (
     <nav>
       {isOpen && (
-        <div className="overlay" onClick={() => setIsOpen(false)}></div>
+        <div
+          className="overlay overlay_active"
+          onClick={() => setIsOpen(false)}
+        />
       )}
+
       <div className="nav_container">
         <a href="/user">
           <img src={logo} alt="logo" loading="lazy" className="navbar_logo" />
         </a>
 
         <div className="navbar_right">
-          <div className="search_bar_box">
-            <input
-              type="text"
-              name="search"
-              id=""
-              placeholder="Search for anything"
-            />
-            <div className="uil-search_box">
-              <i className="uil uil-search"></i>
-            </div>
-          </div>
+          {searchBar}
 
           <div className="navbar_bell_box">
             <span>Docs</span>
             <img src={bell} alt="notification" className="cursor_pointer" />
-            <div className="navbar_profile_box">
+            <div
+              className="navbar_profile_box"
+              style={{ borderRadius: '9999px' }}
+            >
               <img src={image4} alt="profile_pics" loading="lazy" />
               <h6>Adedeji</h6>
               <img
@@ -79,8 +88,9 @@ function Navbar({}: Props) {
         <a href="/user">
           <img src={logo} alt="logo" />
         </a>
-        <i className="uil uil-bars" onClick={toggleMenu}></i>
+        <i className="uil uil-bars" onClick={toggleMenu} />
       </div>
+
       <div className={`mobileNavbar ${isOpen ? 'left' : 'right'}`}>
         <div className="mobile_close_header">
           {/* <div className="mobile-menu left close_navbar_btn"> */}
@@ -222,6 +232,6 @@ function Navbar({}: Props) {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
