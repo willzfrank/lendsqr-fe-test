@@ -38,7 +38,7 @@ type User = {
     sector: string;
     duration: string;
     officeEmail: string;
-    monthlyIncome: ['128.57', '118.07'];
+    monthlyIncome: number[];
     loanRepayment: string;
   };
 };

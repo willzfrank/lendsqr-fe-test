@@ -36,6 +36,33 @@ const TableDataRow = ({
     setActiveModalIndex(activeModalIndex === index ? null : index);
   };
 
+  const statusOptions = ['Active', 'Inactive', 'Pending', 'Blacklisted'];
+  const randomStatus =
+    statusOptions[Math.floor(Math.random() * statusOptions.length)];
+
+  let backgroundColor,
+    color = '';
+  switch (randomStatus) {
+    case 'Active':
+      backgroundColor = '#f2faf4';
+      color = '#39CD62';
+      break;
+    case 'Inactive':
+      backgroundColor = '#c6c8d0';
+      color = '#545F7D';
+      break;
+    case 'Pending':
+      backgroundColor = '#f6eed5';
+      color = '#E9B200';
+      break;
+    case 'Blacklisted':
+      backgroundColor = '#efcdd5';
+      color = '#E4033B';
+      break;
+    default:
+      backgroundColor = 'white';
+  }
+
   return (
     <tr key={item.id}>
       <td>
@@ -49,7 +76,9 @@ const TableDataRow = ({
       </td>
       <td>{item.phoneNumber}</td>
       <td>{item.createdAt}</td>
-      <td>Active</td>
+      <td className="table-status">
+        <p style={{ backgroundColor, color }}>{randomStatus}</p>
+      </td>
       <td
         className="modal_container"
         onMouseEnter={() => setIsHovered(true)}

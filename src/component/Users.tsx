@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -15,33 +15,6 @@ interface Tab {
   title: string;
   content: JSX.Element | string;
 }
-
-const tabs: Tab[] = [
-  {
-    title: 'General Details',
-    content: <UserTab />,
-  },
-  {
-    title: 'Documents',
-    content: 'Documents is currently unavailable',
-  },
-  {
-    title: 'Bank Details',
-    content: 'Bank Details is currently unavailable',
-  },
-  {
-    title: 'Loans',
-    content: 'Loans is currently unavailable',
-  },
-  {
-    title: 'Savings',
-    content: 'Savings is currently unavailable',
-  },
-  {
-    title: 'App and System',
-    content: 'App and System is currently unavailable',
-  },
-];
 
 const handleDeactivate = () => {
   toast.success('User has been blacklisted.', {
@@ -78,11 +51,40 @@ const User = () => {
         setUser(user);
       } catch (error) {
         console.error(error);
+        toast.error('Failed to fetch user', {
+          icon: '❌',
+        });
       }
     };
-
     fetchUser();
   }, [id]);
+
+  const tabs: Tab[] = [
+    {
+      title: 'General Details',
+      content: <UserTab user={user} />,
+    },
+    {
+      title: 'Documents',
+      content: 'Documents is currently unavailable',
+    },
+    {
+      title: 'Bank Details',
+      content: 'Bank Details is currently unavailable',
+    },
+    {
+      title: 'Loans',
+      content: 'Loans is currently unavailable',
+    },
+    {
+      title: 'Savings',
+      content: 'Savings is currently unavailable',
+    },
+    {
+      title: 'App and System',
+      content: 'App and System is currently unavailable',
+    },
+  ];
 
   const handleTabClick = (tabIndex: number) => {
     setActiveTab(tabIndex);
@@ -111,7 +113,7 @@ const User = () => {
   };
 
   if (!user) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   return (
@@ -142,14 +144,26 @@ const User = () => {
       </div>
       <div className="user_profile_box">
         <div className="profile_top">
-          <div className="profile_img" title="Grace Effiom">
+          {/* <div
+            className="profile_img"
+            title={`${user?.profile.firstName} ${user?.profile.lastName}`}
+          >
             <i className="uil uil-user"></i>
+          </div> */}
+          <div
+            className="profile-avatar"
+            title={`${user?.profile.firstName} ${user?.profile.lastName}`}
+          >
+            <img
+              src={user?.profile.avatar}
+              alt={`${user?.profile.firstName} pics`}
+            />
           </div>
           <div className="profile_name">
             <h2>
               {user?.profile.firstName} {user?.profile.lastName}
             </h2>
-            <span>LSQFf587g90</span>
+            <span>{user?.accountNumber}</span>
           </div>
           <div className="border"></div>
 
@@ -165,8 +179,8 @@ const User = () => {
           <div className="border"></div>
 
           <div className="user_amount">
-            <h2>₦200,000.00</h2>
-            <span>9912345678/Providus Bank</span>
+            <h2>₦{user?.accountBalance}</h2>
+            <span>{user?.accountNumber}/Providus Bank</span>
           </div>
         </div>
 

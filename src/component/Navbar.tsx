@@ -66,11 +66,13 @@ const Navbar = () => {
           <div className="navbar_bell_box">
             <span>Docs</span>
             <img src={bell} alt="notification" className="cursor_pointer" />
-            <div
-              className="navbar_profile_box"
-              style={{ borderRadius: '9999px' }}
-            >
-              <img src={image4} alt="profile_pics" loading="lazy" />
+            <div className="navbar_profile_box">
+              <img
+                src={image4}
+                alt="profile_pics"
+                loading="lazy"
+                style={{ borderRadius: '9999px' }}
+              />
               <h6>Adedeji</h6>
               <img
                 src={down}

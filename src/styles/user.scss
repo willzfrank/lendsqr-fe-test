@@ -1,3 +1,50 @@
+.loading {
+  flex: 4;
+  height: calc(100vh - 100px);
+  background-color: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Work Sans;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #213f7d;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.loading::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid #213f7d;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .user_container {
   flex: 4;
   height: calc(100vh - 100px);
@@ -106,6 +153,13 @@
         flex-direction: column;
       }
 
+      .profile-avatar {
+        img {
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
       .profile_name {
         @media (min-width: 320px) and (max-width: 767px) {
           width: 100%;
@@ -149,6 +203,12 @@
       }
 
       .user_amount {
+        @media (min-width: 320px) and (max-width: 767px) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
         h2 {
           font-family: Work Sans;
           font-size: 22px;
@@ -344,8 +404,10 @@
     grid-auto-flow: row;
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 50px;
+      // grid-template-columns: 1fr 1fr;
+      // gap: 10px 0px;
+      display: flex;
+      flex-direction: column;
     }
 
     @media screen and (min-width: 1280px) {
