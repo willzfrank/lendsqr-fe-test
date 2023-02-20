@@ -6,6 +6,10 @@ import Users from '../component/Users';
 type Props = {};
 
 const UserDetails = (props: Props) => {
+  React.useEffect(() => {
+    document.title = 'Lendsqr | User details';
+  }, []);
+
   return (
     <div>
       <Navbar />

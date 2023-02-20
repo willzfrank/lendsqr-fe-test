@@ -119,7 +119,7 @@ const UserTab: React.FC<UserProps> = ({ user }) => {
         <div>
           <div className="personal_details">
             <span> Duration of employment</span>
-            <h6>{user?.education.duration} years </h6>
+            <h6>{user?.education.duration} </h6>
           </div>
         </div>
       </div>
