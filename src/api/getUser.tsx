@@ -14,3 +14,4 @@ export const getUser = async (userId: string | undefined) => {
     console.error(error);
   }
 };
+

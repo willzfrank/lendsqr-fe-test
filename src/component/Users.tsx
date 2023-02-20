@@ -45,9 +45,10 @@ const User = () => {
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchData = async () => {
       try {
         const user = await getUser(id);
+        localStorage.setItem('user', JSON.stringify(user));
         setUser(user);
       } catch (error) {
         console.error(error);
@@ -56,7 +57,13 @@ const User = () => {
         });
       }
     };
-    fetchUser();
+
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    } else {
+      fetchData();
+    }
   }, [id]);
 
   const tabs: Tab[] = [

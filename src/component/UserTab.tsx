@@ -148,8 +148,7 @@ const UserTab: React.FC<UserProps> = ({ user }) => {
           <div className="personal_details">
             <span>Full Name</span>
             <h6>
-              {user?.guarantor.firstName}
-              {user?.guarantor.lastName}
+              {user?.guarantor.firstName} {user?.guarantor.lastName}
             </h6>
           </div>
           <div className="personal_details">
